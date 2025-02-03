@@ -1,0 +1,64 @@
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+    <!-- Assignment: Final Exam PE
+     Name: Imani Leary
+     Date: 9/26/2024
+     -->
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Final Exam PE</title>
+         <style>
+             body { font-family: Arial, sans-serif; }
+             h1 { text-align: center; }
+             .container { width: 300px; margin: 0 auto; }
+             label { display: block; margin-top: 10px; }
+             input { width: 100%; padding: 5px; }
+             button { margin-top: 10px; padding: 10px; width: 100%; }
+         </style>
+     </head>
+     <body>
+         <h1>Imani Leary, Trip Stats Calculator</h1>
+         <div class="container">
+             <label for="tripName">Trip Name:</label>
+             <input type="text" id="tripName" required>
+     
+             <label for="startMileage">Starting Mileage:</label>
+             <input type="number" id="startMileage" required>
+     
+             <label for="endMileage">Ending Mileage:</label>
+             <input type="number" id="endMileage" required>
+     
+             <label for="gallonsUsed">Gallons of Gas Used:</label>
+             <input type="number" id="gallonsUsed" required>
+     
+             <button onclick="calculateTrip()">Get Trip Summary</button>
+         </div>
+     
+         <div id="tripSummary" style="display:none; text-align:center; margin-top:20px;"></div>
+     
+         <script>
+             function calculateTrip() {
+                 const tripName = document.getElementById("tripName").value;
+                 const startMileage = parseFloat(document.getElementById("startMileage").value);
+                 const endMileage = parseFloat(document.getElementById("endMileage").value);
+                 const gallonsUsed = parseFloat(document.getElementById("gallonsUsed").value);
+     
+                 const totalMiles = endMileage - startMileage;
+                 const mileage = totalMiles / gallonsUsed;
+     
+                 const summaryHTML = `
+                     <h2>Trip Summary</h2>
+                     <p>Trip Name: ${tripName}</p>
+                     <p>Starting Mileage: ${startMileage}</p>
+                     <p>Ending Mileage: ${endMileage}</p>
+                     <p>Gallons of Gas Consumed: ${gallonsUsed}</p>
+                     <p>Fuel Economy (MPG): ${mileage.toFixed(1)}</p>
+                 `;
+     
+                 document.getElementById("tripSummary").innerHTML = summaryHTML;
+                 document.getElementById("tripSummary").style.display = "block";
+             }
+         </script>
+     </body>
+     </html>

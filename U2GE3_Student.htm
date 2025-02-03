@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      CIS213 Unit 2, Graded Exercise 3
+      Author: Imani Leary
+      Date: 09/08/2024
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Unit 2 Graded Exercise 3</title>
+</head>
+
+<body onload="calculateAreas();">
+   <header>
+      <h1 style="margin-left: 3em">
+         Imani Leary, Debugging Exercise
+      </h1>
+   </header>
+
+   <article>
+      <form>
+         <pre><span style="font-size: 20px; font-family: Times New Roman">
+            The area of a rectangle is found by multiplying 
+            the length by the width:
+            
+               area = length * width
+            
+            For a right triangle, the area is 1/2 the length 
+            times the width:
+            
+               area = (length * width)/2
+
+            Given these formulas, if we have a rectangle with
+            a length of 5 and width of 10, the corresponding 
+            areas of the rectangle and the right triangle
+            formed by the line that bisects the rectangle 
+            are:</span></pre>   
+         <p id="rectArea" style="margin-left: 8em; font-family: Times New Roman; font-size: 20px"></p>
+         <p id="triArea" style="margin-left: 8em; font-family: Times New Roman; font-size: 20px"></p>               
+      </form>
+   </article>
+   <script>
+      // Temporarily comment out strict mode check
+      // var isStrict = (function() { return !this; })();
+
+      function calculateAreas() {
+         // Simple logging to verify function execution
+         console.log('calculateAreas function called');
+         
+         // Calculate the rectangle's area
+         var rectArea = 5 * 10; // Rectangle area calculation
+         // Calculate the triangle's area
+         var triArea = (5 * 10) / 2; // Triangle area calculation
+         
+         // Log the results to check calculations
+         console.log('Rectangle Area:', rectArea);
+         console.log('Triangle Area:', triArea);
+         
+         // Set the rectangle area text on the page
+         var rectP = document.getElementById("rectArea");
+         rectP.innerHTML = "Rectangle Area is: " + rectArea;
+         
+         // Set the triangle area text on the page
+         var triP = document.getElementById("triArea");
+         triP.innerHTML = "Triangle Area is: " + triArea;
+      }
+   </script>
+</body>
+</html>

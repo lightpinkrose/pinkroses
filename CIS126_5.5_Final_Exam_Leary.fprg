@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="ecpi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-25 01:14:31 PM"/>
+        <attribute name="created" value="ZWNwaTtNQVNURVJNVlMxNVAxMDsyMDI0LTAzLTI1OzEyOjAwOjQyIFBNOzI2NzM="/>
+        <attribute name="edited" value="ZWNwaTtNQVNURVJNVlMxNVAxMDsyMDI0LTAzLTI1OzAxOjE0OjMxIFBNOzE7Mjc4Mg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="welcomeMessage" type="String" array="False" size=""/>
+            <assign variable="welcomeMessage" expression="&quot;Welcome to Hansen's Discount Supermarket!&quot;"/>
+            <output expression="welcomeMessage" newline="True"/>
+            <declare name="numItems" type="Integer" array="False" size=""/>
+            <output expression="&quot;Please enter the number of items you have in total: &quot;" newline="True"/>
+            <input variable="numItems"/>
+            <declare name="prices" type="Real" array="True" size="numItems"/>
+            <for variable="i" start="0" end="numItems-1" direction="inc" step="1">
+                <output expression="&quot;Please enter the price of item &quot; &amp;i" newline="True"/>
+                <input variable="prices[i]"/>
+                <while expression="prices[i] &gt; 10.00">
+                    <output expression="&quot;Invalid price! Please enter a value less than $10.00 &quot;" newline="True"/>
+                    <input variable="prices[i]"/>
+                </while>
+            </for>
+            <declare name="totalSales" type="Real" array="False" size=""/>
+            <assign variable="totalSales" expression="0.0"/>
+            <for variable="i" start="0" end="numItems-1" direction="inc" step="1">
+                <assign variable="totalSales" expression="totalSales + prices[i]"/>
+            </for>
+            <declare name="tax" type="Real" array="False" size=""/>
+            <assign variable="tax" expression="0.06"/>
+            <declare name="finalTotal" type="Real" array="False" size=""/>
+            <assign variable="finalTotal" expression="0.0"/>
+            <call expression="calculateFinalTotal(totalSales, tax)"/>
+            <assign variable="finalTotal" expression="calculateFinalTotal(totalSales, tax)"/>
+            <output expression="&quot;Final Total: $&quot; &amp;finalTotal" newline="True"/>
+        </body>
+    </function>
+    <function name="calculateFinalTotal" type="Real" variable="finalTotal">
+        <parameters>
+            <parameter name="totalSales" type="Real" array="False"/>
+            <parameter name="tax" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="finalTotal" type="Real" array="False" size=""/>
+            <assign variable="finalTotal" expression="0.0"/>
+            <assign variable="finalTotal" expression="totalSales * (1 + tax)"/>
+        </body>
+    </function>
+</flowgorithm>

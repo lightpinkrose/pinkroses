@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    Assignment: Unit 3 Graded Exercise 2
+    Author: Imani Leary
+    Date: 09/09/2024
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 Graded Exercise 2</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        "use strict";
+        
+        function openTableWindow(title, tableType) {
+            var tableWin = window.open("", "MathTableDisplay",
+                "toolbar=no, menubar=no, location=no, scrollbars=yes, resizable=no, width=500, height=400");
+            tableWin.document.open();
+            tableWin.document.write("<!DOCTYPE html><html><head><title>" + title + "</title></head><body>");
+            tableWin.document.write("<h1>" + title + "</h1>");
+            tableWin.document.write("<table border='1' width='100%'>");
+
+            // Create the top header row
+            tableWin.document.write("<tr><th>&nbsp;</th>");
+            for (var i = 0; i < 11; i++) {
+                tableWin.document.write("<th>" + i + "</th>");
+            }
+            tableWin.document.write("</tr>");
+
+            // Create the row headers and the solutions
+            for (var i = 0; i < 11; i++) {
+                tableWin.document.write("<tr align='center'><td>" + i + "</td>");
+                for (var j = 0; j < 11; ++j) {
+                    if (tableType === 'addition') {
+                        tableWin.document.write("<td>" + (i + j) + "</td>");
+                    } else if (tableType === 'multiplication') {
+                        tableWin.document.write("<td>" + (i * j) + "</td>");
+                    }
+                }
+                tableWin.document.write("</tr>");
+            }
+
+            tableWin.document.write("</table>");
+            tableWin.document.write("</body></html>");
+            tableWin.document.close();
+            tableWin.focus();
+        }
+
+        function additionTable() {
+            openTableWindow("Addition Table", "addition");
+        }
+
+        function multiplicationTable() {
+            openTableWindow("Multiplication Table", "multiplication");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Imani Leary, Math Tables</h1>
+    </header>
+    <button onclick="additionTable()">Addition Table</button>
+    <button onclick="multiplicationTable()">Multiplication Table</button>
+</body>
+</html>

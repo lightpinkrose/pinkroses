@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      Unit 2 Graded Exercise 2
+      Author: Imani Leary
+      Date: 09/08/2024
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Unit 2 Graded Exercise 2</title>
+   <script>
+      function printEvenNumbers() {
+         var output = "";
+         var number = 2; // Start from the first even number
+
+         while (number <= 101) {
+            output += number + "<br />";
+            number += 2; // Increment by 2 to get the next even number
+         }
+
+         document.getElementById("evenNumbers").innerHTML = output;
+      }
+   </script>
+</head>
+
+<body onload="printEvenNumbers()">
+   <header>
+      <h1>Imani Leary, Even Numbers</h1>
+   </header>
+
+   <article>
+      <div id="evenNumbers"></div>
+   </article>
+</body>
+</html>

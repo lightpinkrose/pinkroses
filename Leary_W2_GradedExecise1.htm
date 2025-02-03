@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      Week 2 Performance Assessment 1
+      Author: Imani Leary
+      Date: 09/08/2924
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Week 2 Performance Assessment 1</title>
+   <script>
+      function calculateShippingAndHandling() {
+         var purchasePrice = parseFloat(document.getElementById("purchasePrice").value);
+         var shippingFee;
+
+         if (purchasePrice <= 25) {
+            shippingFee = 1.50;
+         } else {
+            shippingFee = purchasePrice * 0.10;
+         }
+
+         var totalPrice = purchasePrice + shippingFee;
+         alert("The order total is: $" + totalPrice.toFixed(2));
+      }
+   </script>
+</head>
+
+<body>
+   <header>
+      <h1>Imani Leary, Calculate Shipping and Handling</h1>
+   </header>
+
+   <article>
+      <form>
+         <fieldset>
+            <label for="purchasePrice">Enter Purchase Price:</label>
+            <input type="text" id="purchasePrice" />
+         </fieldset>
+         <fieldset>
+            <button type="button" onclick="calculateShippingAndHandling()">Get Shipping & Handling Fee</button>
+         </fieldset>
+      </form>
+   </article>
+</body>
+</html>

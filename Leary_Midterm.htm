@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Assignment: Midterm PE
+    Author: Imani Leary
+    Date: 09/09/2024
+    -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midterm PE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+        label, input, button {
+            margin: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Imani Leary, Target Heart Rate</h1>
+    </header>
+    
+    <main>
+        <label for="ageInput">Your Age:</label>
+        <input type="number" id="ageInput" placeholder="Enter your age">
+        <button onclick="calculateHeartRate()">Calculate Target Heart Rate</button>
+        <div id="result"></div>
+    </main>
+
+    <script>
+        function calculateHeartRate() {
+            // Get the age from the input
+            var age = document.getElementById('ageInput').value;
+
+            // Validate the input
+            if (age === '' || isNaN(age) || age <= 0) {
+                document.getElementById('result').innerText = 'Please enter a valid age.';
+                return;
+            }
+
+            // Calculate maximum heart rate
+            var maxHR = 220 - age;
+
+            // Calculate minimum and maximum target heart rate
+            var minTHR = Math.floor(maxHR * 0.5);
+            var maxTHR = Math.floor(maxHR * 0.85);
+
+            // Display the result
+            document.getElementById('result').innerText = 
+                'Target Heart Rate: ' + minTHR + ' to ' + maxTHR + ' Beats Per Minute';
+        }
+    </script>
+</body>
+</html>
